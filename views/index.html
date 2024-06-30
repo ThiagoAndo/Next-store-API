@@ -82,6 +82,7 @@
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
+      content: fit;
     }
       #download {
         margin: 10px 0px 10px 0px;
@@ -96,7 +97,7 @@
       e-commerce applicationsew. API Requests are rate limited to 100 requests every 15 minutes. This API allows you to manage and retrieve products, users, users' address, users' carts and users' purchases. Please refer to the
     documentation below for details on how to interact with the API.</p>
     <p id="download"><a href="/download">Dowload postman collection</a></p>
-    <p id="download"><a href="https://github.com/ThiagoAndo/store-API">Get the project code on the github repository</a></p>
+    <p id="download"><a href="https://github.com/ThiagoAndo/Next-Store-API">Get the project code on the github repository</a></p>
   <li>The API is rate limited to 100 requests every 15 minutes. </li>
   <li>User submitted Product are erased on a regular basis.</li>
   
@@ -113,8 +114,8 @@
   </ul>
   </br>
   <div class="endpoint">
-    <h2 class="get-method">POST /register</h2>
-    <p>Registers a new user. If the email is already taken, it will return an error. </p>
+    <h2 class="get-method">POST /new/user</h2>
+    <p>Registers a new user. will return user information with a token. If the email is already taken, it will return an error. </p>
     <p><strong>Request Body:</strong></p>
     <pre><code>{
   "first_name": "The first name of the new user.",
@@ -153,7 +154,15 @@
       <p><strong>Example Response:</strong></p>
       <div class="response">
         <pre><code>{
-  "apiKey": "generated-api-key"
+  {
+    "first_name": "Stephen",
+    "last_name": "King",
+    "email_address": "stephenking@lorem.com",
+    "password": "$2a$12$/ew7Q8hPMyDFQmMivZUMGeS.McdY1TDdPAlUZ103fRZhL7g2g/h.m",
+    "id": "15fmlj1wly1vu9nr",
+    "created_at": "30-06-2024   18:26:31",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZG8ua2Vpa29AZ21haWwuY29tIiwiaWF0IjoxNzE5NzcxOTkxLCJleHAiOjE3MTk3NzU1OTF9.ccDskjGXcvc2MkfBGcDax9lw8wWlUOxfzQCbzXm1CVg"
+}
 }</code></pre>
       </div>
     </div>
