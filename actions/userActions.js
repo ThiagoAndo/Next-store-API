@@ -3,7 +3,7 @@ const db = sql("e-comerce.db");
 const pkg = require("bcryptjs");
 const { hash, compare } = pkg;
 const uniqid = require("uniqid");
-const { currentDate } = require("../helpers/dateGenerator");
+const { getCurrentDate } = require("../helpers/dateGenerator");
 const { createJSONToken } = require("../util/auth");
 const { isName, isPassword, isEmail } = require("../helpers/validate");
 // require("../helpers/routeLock");
@@ -43,28 +43,43 @@ async function newUser(user) {
     confUser: "yes",
   });
   if (!conf) {
-    if (!isName(user.first_name + " " + user.last_name)) {
-      error.message = "Name is wrong. Make sure to enter first and last name only";
-      return error;
-    } else if (!isEmail(user.email_address)) {
-      error.message = "Email is not valid "
-      return error;
-    } else if (!isPassword(user.password)) {
-      error.message = "Password must contain at least eight character"
-      return error;
+    const isOk = isDataOk(user);
+    if (isOk) {
+      return isOk;
     }
     user.password = await hash(user.password, 12);
     user.id = uniqid();
-    user.created_at = currentDate();
+    user.created_at = getCurrentDate();
     changeAccess();
     createAction("users", user);
     const authToken = createJSONToken(user.email_address);
     user.token = authToken;
     return user;
   } else {
-    error.message = "user already registered"
+    error.message = "Email already registered";
     return error;
+  }
+}
+
+function isDataOk(user) {
+  if (
+    user?.first_name &&
+    user?.last_name &&
+    !isName(user?.first_name + " " + user?.last_name)
+  ) {
+    error.message =
+      "Name is wrong. Make sure to enter first and last name only";
+    return error;
+  } else if (user?.email_address && !isEmail(user?.email_address)) {
+    error.message = "Email is not valid ";
+    return error;
+  } else if (user?.password && !isPassword(user?.password)) {
+    error.message = "Password must contain at least eight character";
+    return error;
+  } else {
+    return false;
   }
 }
 exports.newUser = newUser;
 exports.getUser = getUser;
+exports.isDataOk = isDataOk;
