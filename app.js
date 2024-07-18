@@ -8,10 +8,10 @@ const order = require("./routes/order");
 const doc = require("./routes/docs");
 const app = express();
 
+app.use(express.static(__dirname + "/public"));
 app.set("view engine", "html");
 app.set("views", __dirname + "/views");
 app.engine("html", require("ejs").renderFile);
-app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {

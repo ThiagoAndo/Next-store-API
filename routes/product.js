@@ -16,8 +16,7 @@ router.get("/categories", async (req, res) => {
   const ret = db.prepare(`SELECT DISTINCT category FROM products`).all();
   res.status(200).json(ret);
 });
-module.exports = router;
-router.get("/bycategorie", async (req, res) => {
+router.get("/bycategories", async (req, res) => {
   const { category } = req.query;
   let queryLen = "category = ?";
   let products = null;

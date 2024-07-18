@@ -2,12 +2,16 @@ body {
   font-family: Arial, sans-serif;
   margin: 20px;
   background-color: #f2f2f2;
+  color: white;
 }
+
 .my_nav {
   background-color: black;
 }
+
 h1 {
   color: #333;
+  margin-top: 5rem;
 }
 
 h2 {
@@ -35,7 +39,7 @@ code {
 
 .endpoint {
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #212529;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -49,9 +53,12 @@ code {
 a {
   color: #ff7f50;
 }
+.link {
+  color: #ff7f50;
+}
 
 .endpoint p {
-  color: #888;
+  color: white;
 }
 
 .example {
@@ -72,14 +79,44 @@ a {
   border-radius: 5px;
 }
 
+.welcome,
+.request code {
+  color: #212529;
+}
+
 .response {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #f5f5f5;
+  background-color: #4d5154;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
 #download {
   margin: 10px 0px 10px 0px;
+}
+
+.get {
+  color: rgb(11, 202, 11) !important;
+  font-weight: 600;
+}
+
+.post {
+  color: rgb(222, 198, 10) !important;
+  font-weight: 600;
+}
+
+.ctr {
+  text-align: center;
+}
+
+.patch {
+  color: rgb(85, 99, 204) !important;
+  font-weight: 600;
+}
+
+.delete {
+  color: rgb(205, 81, 81) !important;
+  font-weight: 600;
 }
