@@ -9,4 +9,8 @@ router.get("/prt", (req, res) => {
   res.render("products.html");
 });
 
+router.get("/c", (req, res) => {
+  res.render("products copy.html");
+});
+
 module.exports = router;
