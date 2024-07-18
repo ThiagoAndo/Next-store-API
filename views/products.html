@@ -95,30 +95,36 @@
 </head>
 
 <body>
+
+
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
   <div class="container-fluid ">
+    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="https://next-store-api-62m2.onrender.com/doc">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/product">Products</a>
+          <a class="nav-link" href="#">Link</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/doc/product">User</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/doc/product">Cart</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/doc/product">Address</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/doc/product">Order</a>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
     </div>
@@ -131,14 +137,12 @@
     documentation below for details on how to interact with the API.</p>
     <p id="download"><a href="/download">Dowload postman collection</a></p>
     <p id="download"><a href="https://github.com/ThiagoAndo/Next-Store-API">Get the project code on the github repository</a></p>
-    <br/>
   <li>The API is rate limited to 100 requests every 15 minutes. </li>
   <li>User submitted Product are erased on a regular basis.</li>
-  <h2>Authentication</h2>
+  <h2>Products</h2>
   <ul>
     <li><strong>Basic Authentication</strong> is required for some endpoints. Use your email and password to
       authenticate.</li>
-    
     <li><strong>Bearer Token Authentication</strong> is required for some endpoints. Use your email and password to
       get a token obtained from the
       <code>/user/new</code> endpoint.
