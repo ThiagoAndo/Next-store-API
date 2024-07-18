@@ -98,9 +98,9 @@
             "category": "fragrances",
             "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
         },
-        ...
-        ]
-      }
+       // ... more products ...
+               ]
+ }
       </code></pre>
         </div>
       </div>
@@ -108,41 +108,6 @@
 
     <div class="endpoint">
       <h2 class="get">GET PRODUCT CATEGORIES</h2>
-      <p>Returns all products.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code
-            ><span class="get">GET</span>
-            https://next-store-api-62m2.onrender.com/products/categories</code
-          >
-        </div>
-        <p><strong>Example Response:</strong></p>
-        <div class="response">
-          <pre><code>{
-    "products": [
-        {
-            "id": "6",
-            "title": "Calvin Klein CK One",
-            "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
-            "price": 49.99,
-            "discountPercentage": 0.32,
-            "rating": 4.85,
-            "stock": 17,
-            "brand": "Calvin Klein",
-            "category": "fragrances",
-            "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
-        },
-        ...
-        ]
-      }
-      </code></pre>
-        </div>
-      </div>
-    </div>
-
-    <div class="endpoint">
-      <h2 class="get">GET ALL PRODUCTS</h2>
       <p>Returns all categories.</p>
       <div class="example">
         <p><strong>Example Request:</strong></p>
@@ -161,7 +126,7 @@
     {
         "category": "furniture"
     },
-        ...
+     // ... more categories ...
        
 ]</code></pre>
         </div>
@@ -169,20 +134,30 @@
     </div>
 
     <div class="endpoint">
-      <h2 class="get">GET PRODUCT BY CATEGORY</h2>
-      <p>Returns all categories.</p>
+      <h2 class="get">GET /filter</h2>
+      <p>
+        Returns a random secret with a particular embarrassment score or higher.
+        API key authentication is required.
+      </p>
+      <p><strong>Query Parameters:</strong></p>
+      <ul>
+        <li>
+          <code class="get">category</code>: Product category from
+          <code class="get">products/categories</code>
+          endpoint.
+        </li>
+      </ul>
       <div class="example">
         <p><strong>Example Request:</strong></p>
         <div class="request">
           <code
             ><span class="get">GET</span>
-            https://next-store-api-62m2.onrender.com/products/bycategorie/{PARAMS}</code
+            https://next-store-api-62m2.onrender.com/products/bycategorie?category=mens-shoes&category=mens-watches</code
           >
         </div>
         <p><strong>Example Response:</strong></p>
         <div class="response">
-          <pre><code>{
-    "products": [
+          <pre><code>[
         {
             "id": "6",
             "title": "Calvin Klein CK One",
@@ -195,59 +170,8 @@
             "category": "fragrances",
             "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
         },
-        ...
-        ]
-      }
-      </code></pre>
-        </div>
-      </div>
-    </div>
-
-    <div class="endpoint">
-      <h2 class="get-method">GET /filter</h2>
-      <p>
-        Returns a random secret with a particular embarrassment score or higher.
-        API key authentication is required.
-      </p>
-      <p><strong>Query Parameters:</strong></p>
-      <ul>
-        <li>
-          <code>apiKey</code>: Your API Key generated from the<code
-            >/generate-api-key</code
-          >
-          endpoint.
-        </li>
-        <li>
-          <code>score</code>: The minimum embarrassment score to filter by.
-        </li>
-      </ul>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code
-            ><span class="get-method">GET</span>
-            https://next-store-api-62m2.onrender.com/products/bycategorie?category=mens-shoes&category=mens-watches</code
-          >
-        </div>
-        <p><strong>Example Response:</strong></p>
-        <div class="response">
-          <pre><code>[
-    {
-      "id": "1",
-      "secret": "This is a secret with embarrassment score 5 or higher.",
-      "emScore": 5,
-      "username": "user123",
-      "timestamp": "2022-10-01T12:34:56Z"
-    },
-    {
-      "id": "2",
-      "secret": "Another secret with embarrassment score 5 or higher.",
-      "emScore": 7,
-      "username": "user123",
-      "timestamp": "2022-10-02T10:11:12Z"
-    }
-    // ... more secrets ...
-  ]</code></pre>
+        // ... more products ...
+]</code></pre>
         </div>
       </div>
     </div>
