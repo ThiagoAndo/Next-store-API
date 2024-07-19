@@ -69,42 +69,42 @@
         </div>
       </div>
     </nav>
-    <h1>Product Routes</h1>
+    <h1>User Routes</h1>
     <br />
-    <div class="endpoint">
-      <h2 class="get">GET /all products</h2>
-      <p>Returns all products.</p>
-      <div class="example">
-        <p><strong>Example Request:</strong></p>
-        <div class="request">
-          <code
-            ><span class="get">GET</span>
-            https://next-store-api-62m2.onrender.com/products</code
-          >
-        </div>
-        <p><strong>Example Response:</strong></p>
-        <div class="response">
-          <pre><code>{
-    "products": [
-        {
-            "id": "6",
-            "title": "Calvin Klein CK One",
-            "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
-            "price": 49.99,
-            "discountPercentage": 0.32,
-            "rating": 4.85,
-            "stock": 17,
-            "brand": "Calvin Klein",
-            "category": "fragrances",
-            "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
-        },
-       // ... more products ...
-               ]
- }
-      </code></pre>
-        </div>
+    
+  <div class="endpoint">
+    <h2 class="post">POST /register</h2>
+    <p>Registers a new user. </p>
+    <div class="example">
+      <p><strong>Example Request:</strong></p>
+      <div class="request">
+        <code><span class="post">POST</span> https://next-store-api-62m2.onrender.com/user/new</code>
+        <br />
+        <br />
+        <p><strong>Request Body:</strong></p>
+        <pre><code>{
+     "first_name": "Stephen",
+     "last_name":"King",
+     "email_address":"stephenking@lorem.com",
+     "password":"12345678"
+}</code></pre>
+      </div>
+      <p><strong>Example Response  <span class="get">201</span>:</strong></p>
+      <div class="response">
+        <pre><code>{
+    "first_name": "Stephen",
+    "last_name": "King",
+    "email_address": "stephenking@lorem.com",
+    "password": "$2a$12$xQOnXn.CQ5L.wOhGEwClYOBJz2EWsBxNjKQnoTeMeGaxZGaNJtSEO",
+    "id": "4o40o1vlyltmkxk",
+    "created_at": "18-07-2024h16:26:09",
+   <span style="color:black;"> "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN0ZXBoZW5raW5nQGxvcmVtLmNvbSIsImlhdCI6MTcyMDk3NzU5NywiZXhwIjoxNzIwOTgxMTk3fQ.YyJ35C73_1hULnTJfszzZmj3I2kSlNQnRDp2nHrhug8"</span>
+}</code></pre>
       </div>
     </div>
+  </div>
+
+
 
     <div class="endpoint">
       <h2 class="get">GET /product categories</h2>
@@ -215,12 +215,10 @@
           <pre><code>{ message: "Product created" }</code></pre>
         </div>
           <strong>Example Response <span class="delete">407</span>:</strong>
-        </p>
         <div class="response">
           <pre><code>{ message: "UNIQUE constraint failed: products.id"}</code></pre>
           <pre><code>{ message: "UNIQUE constraint failed: products.title"}</code></pre>
           <pre><code>{ message: "Incomplete Body" }</code></pre>
-
         </div>
       </div>
     </div>
