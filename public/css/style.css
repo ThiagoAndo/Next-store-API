@@ -57,14 +57,13 @@ code {
 
 .endpoint h2 {
   margin-bottom: 5px;
-  color: #ff7f50;
 }
 
 a {
-  color: #ff7f50;
+  color: black;
 }
 .link {
-  color: #ff7f50;
+  color: black;
 }
 
 .endpoint p {
