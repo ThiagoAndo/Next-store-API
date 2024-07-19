@@ -8,9 +8,24 @@ router.get("/", (req, res) => {
 router.get("/prt", (req, res) => {
   res.render("products.html");
 });
+router.get("/user", (req, res) => {
+  res.render("products.html");
+});
+
+router.get("/cart", (req, res) => {
+  res.render("products.html");
+});
+
+router.get("/address", (req, res) => {
+  res.render("products.html");
+});
+
+router.get("/order", (req, res) => {
+  res.render("products.html");
+});
 
 router.get("/c", (req, res) => {
-  res.render("products copy.html");
+  res.render("exp.html");
 });
 
 module.exports = router;

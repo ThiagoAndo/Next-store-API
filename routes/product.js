@@ -46,34 +46,36 @@ router.get("/byid/:id", async (req, res) => {
         .json({ message: `Could not found product with id: ${id}` });
 });
 router.use(checkAuth);
-// router.post("/", (req, res) => {
-//   if (isCorret(11, req.body) && req.body?.images.length > 2) {
-//     const ret = insertP([req.body]);
-//     if (ret?.message) {
-//       res.status(400).json(ret);
-//       return;
-//     } else {
-//       restore();
-//       res.status(201).json({ message: "Product created" });
-//       return;
-//     }
-//   } else {
-//     res.status(407).json({
-//       message: `Incomplete Body`,
-//     });
-//   }
-// });
-// router.delete("/:id", async (req, res) => {
-//   deleteAction("images", "item_id=?", [req.params.id]);
-//   let ret = deleteAction("products", "id=?", [req.params.id]);
-//   if (ret.changes > 0) {
-//     restore();
-//     res.status(200).json({ message: `Deleted product id ${req.params.id}` });
-//     return;
-//   } else {
-//     res
-//       .status(404)
-//       .json({ message: `Could not delete product id ${req.params.id}` });
-//   }
-// });
+router.post("/", (req, res) => {
+  if (isCorret(11, req.body) && req.body?.images.length > 2) {
+    const ret = insertP([req.body]);
+    if (ret?.message) {
+      res.status(400).json(ret);
+      return;
+    } else {
+      restore();
+      res.status(201).json({ message: "Product created" });
+      return;
+    }
+  } else {
+    res.status(407).json({
+      message: `Incomplete Body`,
+    });
+  }
+});
+router.delete("/:id", async (req, res) => {
+  deleteAction("images", "item_id=?", [req.params.id]);
+  let ret = deleteAction("products", "id=?", [req.params.id]);
+  if (ret.changes > 0) {
+    restore();
+    res
+      .status(200)
+      .json({ message: `Deleted product with id ${req.params.id}` });
+    return;
+  } else {
+    res
+      .status(404)
+      .json({ message: `Could not delete product with id ${req.params.id}` });
+  }
+});
 module.exports = router;
