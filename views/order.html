@@ -41,6 +41,15 @@
   </nav>
   <div class="container">
     <h1>Order Route</h1>
+    <h3 class="margin">Order route features and usage:</h3>
+    <ul>
+      <li>To request a new order the client must have at least one product on their cart.</li>
+      <li>User id must be provided.</li>
+      <li>To request a new order as a guest, a cart must be provided with a product. User id does not need to be
+        provided.</li>
+      <li>Name must be passed as first name and last name only.</li>
+      <li>Email must be a valid email address format.</li>
+    </ul>
     <br />
     <div class="endpoint">
       <h2 class="get">GET /user order</h2>
@@ -109,7 +118,7 @@
     <br />
     <br />
     <div class="endpoint">
-      <h2 class="post">POST /new order as a user guest</h2>
+      <h2 class="post">POST /new order as a use guest</h2>
       <p>Registers a new user's order.</p>
       <div class="example">
         <p><strong>Example Request:</strong></p>
@@ -157,4 +166,5 @@
 </body>
 <footer>Copyright © <a href="# ">Thiago Ando de Freitas</a></footer>
 </div>
+
 </html>
