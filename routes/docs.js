@@ -5,7 +5,7 @@ router.get("/", (req, res) => {
   res.render("index.html");
 });
 
-router.get("/prt", (req, res) => {
+router.get("/product", (req, res) => {
   res.render("products.html");
 });
 router.get("/user", (req, res) => {

@@ -21,7 +21,7 @@
             <a class="nav-link active" aria-current="page" href="https://next-store-api-62m2.onrender.com/doc">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/prt">Product</a>
+            <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/product">Product</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/user">User</a>
@@ -42,23 +42,33 @@
   <div class="container">
     <h1>Next Store API Documentation</h1>
     <div class="containehttps://www.npmjs.com/package/better-sqlite3r">
-      <p class="welcome"> Welcome to the Next Store API. This is a Restful api build usign Node.js and Next.js. It also
-        uses a package called
-        <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> which aalows you to create a
-        relational
-        database and query it using Node.js
-
-        The products endpoint provides a comprehensive dataset of sample
+      <p class="welcome"> Welcome to the Next Store API. The products endpoint provides a comprehensive dataset of
+        sample
         product
         information,
         including details like names, prices, descriptions, images, and categories, ideal for testing and prototyping
-        e-commerce applicationsew. API Requests are rate limited to 100 requests every 15 minutes. This API allows you
-        to
-        manage and retrieve products, users, users' address, users' carts and users' purchases. Please refer to the
-        documentation below for details on how to interact with the API.
+        e-commerce applications. This API allows you to manage and retrieve products, users, users' address, users'
+        carts
+        and users' purchases. Please refer to the documentation below for details on how to interact with the API. This
+        is a Restful API build using Node.js and Next.js. It also
+        uses a package called
+        <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> that allows you to create a relational
+        database and query it using Node.js. Thus, some routes require the client to send
+        one JSON object per request, which will be inserted into
+        the table.
       </p>
+      <h3 class="margin">Key Features</h3>
+      <p><strong> The API provides endpoints for managing and retrieving:</strong></p>
+      <ul>
+        <li>Products</li>
+        <li>Users</li>
+        <li>Users' Addresses</li>
+        <li>Users' Carts</li>
+        <li>Users' Purchases</li>
+      </ul>
+
+      <p class="margin"></p>
     </div>
-    <br />
     <p id="download"><a href="/download">Dowload postman collection</a></p>
     <p id="download"><a href="https://github.com/ThiagoAndo/Next-Store-API">Get the project code on github</a></p>
     <br />
@@ -219,7 +229,8 @@
     <br />
     <h2>Authentication</h2>
     <ul>
-      <li><strong>Bearer Token Authentication</strong> is required for some endpoints. Use your email and password to
+      <li class="auth"><strong>Bearer Token Authentication</strong> is required for some endpoints. Use your email and
+        password to
         get a token obtained from the
         <code>/user/new</code> endpoint.
       </li>
