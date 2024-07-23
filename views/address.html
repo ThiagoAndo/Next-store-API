@@ -40,8 +40,12 @@
     </div>
   </nav>
   <div class="container">
-
     <h1>Address Routes</h1>
+    <h3 class="margin">Address route features and usage:</h3>
+    <ul>
+      <li>User id must be provided.</li>
+      <li>A complete JSON contaning all fields and values must be passed to the API.</li>
+    </ul>
     <br />
     <div class="endpoint">
       <h2 class="get">GET /address</h2>
@@ -139,7 +143,7 @@
         <strong>Example Response <span class="delete">404</span>:</strong>
         <div class="response">
           <pre><code>{ message: "Incomplete Body" }</code></pre>
-          <pre><code>{ message: "CThere is no user with id XXXX"}</code></pre>
+          <pre><code>{ message: "There is no user with id XXXX"}</code></pre>
         </div>
       </div>
     </div>

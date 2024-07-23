@@ -41,6 +41,19 @@
   </nav>
   <div class="container">
     <h1>Cart Routes</h1>
+    <h3 class="margin">Cart route features and usage:</h3>
+    <ul>
+      <li><strong><code style="color: white;">{bought:0}</code></strong>, zero means cart that have not been purchased.
+      </li>
+      <li><strong><code style="color: white;">{bought:1}</code></strong>, one means cart that have been purchased.</li>
+      <li>There will be only one cart <strong><code style="color: white;">{bought:0}</code></strong> for client.</li>
+      <li>There is no restriction for the amount of cart <strong><code style="color: white;">{bought:1}</code></strong>
+        for client.</li>
+
+      <li>User id and date<strong><code style="color: white;">{creation_at: 05-07-2024h15:37:29}</code></strong> must be
+        provided.</li>
+      <li>A complete JSON contaning all fields and values must be passed to the API.</li>
+    </ul>
     <br />
     <div class="endpoint">
       <h2 class="get">GET /cart</h2>
