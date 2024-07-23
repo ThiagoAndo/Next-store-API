@@ -18,7 +18,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://next-store-api-62m2.onrender.com/product">Home</a>
+            <a class="nav-link active" aria-current="page"
+              href="https://next-store-api-62m2.onrender.com/product">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://next-store-api-62m2.onrender.com/doc/prt">Product</a>
@@ -41,6 +42,12 @@
   </nav>
   <div class="container">
     <h1>Product Routes</h1>
+    <h3 class="margin">Products route features and usage:</h3>
+    <ul>
+      <li>User submitted Product are erased on a regular basis.</li>
+      <li>Submitted Product must contain at least two images references.</li>
+      <li>Each product must contain an unique ID and TITLE.</li>
+    </ul>
     <br />
     <div class="endpoint">
       <h2 class="get">GET /all products</h2>
@@ -111,7 +118,7 @@
       </p>
       <p><strong>Query Parameters:</strong></p>
       <ul>
-        <li>
+        <li class="li_end">
           <code class="get">category</code>: Product category from
           <code class="get">products/categories</code>
           endpoint.

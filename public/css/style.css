@@ -30,6 +30,10 @@ h3 {
 li::marker {
   color: black;
 }
+
+.li_end::marker {
+  color: white;
+}
 li {
   margin-bottom: 5px;
 }
