@@ -4,7 +4,10 @@ body {
   background-color: #6c757d;
   color: white;
 }
-
+.container {
+  width: 80%;
+  margin: auto;
+}
 .my_nav {
   background-color: black;
 }
