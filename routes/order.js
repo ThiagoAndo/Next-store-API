@@ -51,24 +51,4 @@ router.get("/:id", (req, res) => {
   }
 });
 
-router.post("/detail", (req, res) => {
-  if (isCorret(2, req.body)) {
-    const cart_id = req.body.cart_id;
-    const user_id = req.body.user_id;
-    const ret = readAction("cart", "creation_at = ? AND user_id = ?", [
-      cart_id,
-      user_id,
-    ]);
-    if (ret) {
-      res.status(200).json(ret);
-    } else {
-      res.status(404).json({ message: "No product found" });
-    }
-    return;
-  } else {
-    res.status(407).json({
-      message: `Incomplete Body`,
-    });
-  }
-});
 module.exports = router;
