@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-  <script src="../assets/js/color-modes.js"></script>
+  <script src="/assets/js/color-modes.js"></script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
   <title>Heroes · Bootstrap v5.3</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/heroes/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -92,51 +92,87 @@
       display: block !important;
     }
 
-    .login {
+    .log {
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      gap: .5rem;
+    }
+    
+
+    .th {
+      color: #0d6efd;
     }
 
-    small {
+    td {
       font-weight: bold;
       word-wrap: break-word;
     }
+
+    span {
+      color: #0d6efd;
+      font-weight: bold;
+    }
+
+    table {
+      width: 300px;
+    }
   </style>
-
-
   <!-- Custom styles for this template -->
   <link href="/css/heroes.css" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="close" class="btn btn-primary close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div class="container col-xl-10 col-xxl-8 px-4 py-5 mt-12 mb-0">
-    <div class="row align-items-center g-lg-5">
-      <div class="col-lg-12 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vertically centered hero sign-up form</h1>
+
+  <div class="bg-dark text-secondary px-4 pt-5 text-center">
+    <div class="py-5">
+      <h1 class="display-5 fw-bold text-white">Testing Next Store API </h1>
+      <p class="fs-6 mb-4">Click on the corresponding button to test the API endpoints</p>
+    </div>
+  </div>
+  <div class="b-example-divider"></div>
+  <!-- Fetch buttons-->
+  <div class="bg-dark text-secondary px-4 pt-5 text-center">
+    <h5 class="display-6 fw-bold text-white">Testing Next Store API </h5>
+    <div class="col-lg-12 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" id="neUser" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">New User</button>
+        <button type="button" id="tBtn" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom
+          button</button>
+        <button type="button" id="tBtn" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom
+          button</button>
+        <button type="button" id="tBtn" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom
+          button</button>
+        <button type="button" id="tBtn" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom
+          button</button>
       </div>
     </div>
   </div>
   <div class="container col-xl-10 col-xxl-8 px-4 ">
     <div class="row align-items-center g-lg-5 py-5">
-      <div class="col-md-10 mx-auto col-lg-5 my-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="signUp">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-          <div class="checkbox mb-3">
-
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-          <hr class="my-4">
-          <div class="login"></div>
-
+      <div class="col-md-10 mx-auto col-lg-6 my-5">
+        <!-- Form -->
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="GET" id="multiForm">
         </form>
       </div>
     </div>
@@ -147,8 +183,9 @@
 
 
 
+
   </main>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/testAPI.js"></script>
 
 </body>

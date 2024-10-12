@@ -1,20 +1,173 @@
-let singUp = document.querySelector("#signUp");
+const form = document.querySelector("#multiForm");
+const neUser = document.querySelector("#neUser");
+const arr = ["first name", "last name", "email", "password"];
+const arr2 = ["email", "password"];
+const methods = ["GET", "POST", "PATCH", "DELETE"];
+let thisMethod = null;
+let endpoint = null;
+let thisHeaders = null;
 
-singUp.addEventListener("submit", (e) => {
+var myModal = new bootstrap.Modal(document.getElementById("myModal"));
+
+// var t = 2
+// if (t === 2) {
+//   // myModal.show();
+// }
+
+// <!-- Modal -->
+
+document.querySelectorAll(".close").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    myModal.hide();
+  });
+});
+
+neUser.addEventListener("click", () => {
+  makeForm(arr2, "Sing up");
+  setFetch("user", "get", "p", false);
+});
+
+function makeForm(inp, btnText) {
+  const content = ` 
+       ${inp
+         .map((i) => {
+           return ` <div class="form-floating mb-3">
+                     <input type=${i} class="form-control" id=${i} name=${i} placeholder=${
+             i.slice(0, 1).toUpperCase() + i.slice(1, i.length)
+           }>
+                      <label for=${i}>${
+             i.slice(0, 1).toUpperCase() + i.slice(1, i.length)
+           }</label>
+                  </div>`;
+         })
+         .join("")} 
+          <div class="checkbox mb-3">
+
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">${btnText}</button>
+          <hr class="my-4">
+          <div class="log">`;
+  form.innerHTML = content;
+}
+
+function setFetch(route, end, type, auth) {
+  switch (route) {
+    case "user":
+      endpoint = `user/${end}`;
+      break;
+    case "product":
+      endpoint = `products/${end}`;
+      break;
+    case "address":
+      endpoint = `add/${end}`;
+      break;
+    case "cart":
+      endpoint = `cart/${end}`;
+      break;
+    default:
+      endpoint = `test/${end}`;
+  }
+console.log(endpoint);
+console.log("endpoint");
+  switch (type) {
+    case "g":
+      thisMethod = "GET";
+      break;
+    case "p":
+      thisMethod = `POST`;
+      break;
+    case "pc":
+      thisMethod = "PATCH";
+      break;
+    case "d":
+      thisMethod = "DELETE";
+      break;
+    default:
+      thisMethod = "GET";
+  }
+
+  if (!auth) {
+    thisHeaders = {
+      "Content-Type": "application/json",
+    };
+  } else {
+    const token = localStorage.getItem("token");
+    thisHeaders = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    };
+  }
+}
+
+function setFormMethod() {}
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  const uer = {
-    password: "123456789",
-    email: "ando.thiago@gmail.com",
-  };
-  const formData = new FormData(singUp);
+  const formData = new FormData(form);
   const user = Object.fromEntries(formData);
-
   handleLogin(user);
 });
+
+// async function handleHTTP(user) {
+//   let response = null;
+//   try {
+//     if (thisMethod === "GET") {
+
+//       const response = await fetch(url);
+//     } else {
+//         console.log({...thisHeaders});
+//         console.log("url");
+//       const response = await fetch("http//localhost:8080/user/get", {
+//         method: thisMethod,
+//         body: JSON.stringify(user),
+//         headers: {
+//           ...thisHeaders,
+//         },
+//       });
+//     }
+//     if (response.ok) {
+//       const data = await response.json();
+//       const print = document.querySelector(".log");
+
+//       console.log(data);
+
+//       const entries = Object.entries(data);
+//       let style = `${"text - primary"}`;
+//       if (data?.message) style = `${"text-danger"}`;
+
+//       print.innerHTML = ` <table class="table table-sm table-dark">
+//    <thead>
+//         <h2 class="fs-6 mb-4">API response </h2>
+//       <tr>
+//       <th class="text-body-secondary" scope="col">#</th>
+//       <th class="text-body-secondary" scope="col">Object key</th>
+//       <th class="text-body-secondary" scope="col">Object value</th>
+//     </tr>
+//   </thead>
+//    <tbody>
+//         ${entries
+//           .map((e, i) => {
+//             return `
+
+//     <tr>
+//       <th class=${style} scope="row">${i + 1}</th>
+//       <td> <span class=${style} > ${e[0]}:</span></td>
+//       <td class= "ml-20 text-break ${style}"> ${e[1]}</td>
+//     </tr>
+// `;
+//           })
+//           .join("")}
+//             </tbody></table>`;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
 async function handleLogin(user) {
+  // console.log(`http//localhost:8080/${endpoint}`);
   try {
-    const response = await fetch(`http://localhost:8080/user/get`, {
+    const response = await fetch(`${endpoint}`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -24,172 +177,39 @@ async function handleLogin(user) {
 
     if (response.ok) {
       const data = await response.json();
-      const print = document.querySelector(".login");
-      created_at: "06-08-2024h08:56:42";
-      email_address: "ando.thiago@gmail.com";
-      first_name: "Thiago";
-      id: "4jgm2z1p2qlzi4mtum";
-      last_name: "Freitas";
-      password: "$2a$12$10PuEBSwNy6KxcgY9yOZRuC83gUn1bwVJsqCNNSJMQNHZsm0NalOq";
+      const print = document.querySelector(".log");
+
       console.log(data);
 
-      print.innerHTML = `   
-            <small class="text-body-secondary">id ${data?.id}</small>
-             <small class="text-body-secondary">iName ${
-               data?.first_name + " " + data?.last_name
-             }</small>
-             <small class="text-body-secondary">email ${
-               data?.email_address
-             }</small>
-             <small class="text-body-secondary">created at ${
-               data?.created_at
-             }</small>
-             <small class="text-body-secondary">password ${
-               data?.password
-             }</small>
-         
-            `;
+      const entries = Object.entries(data);
+      let style = `${"text - primary"}`;
+      if (data?.message) style = `${"text-danger"}`;
+
+      print.innerHTML = ` <table class="table table-sm table-dark">
+   <thead>
+        <h2 class="fs-6 mb-4">API response </h2>
+      <tr>
+      <th class="text-body-secondary" scope="col">#</th>
+      <th class="text-body-secondary" scope="col">Object key</th>
+      <th class="text-body-secondary" scope="col">Object value</th>
+    </tr>
+  </thead>
+   <tbody>
+        ${entries
+          .map((e, i) => {
+            return `    
+ 
+    <tr>
+      <th class=${style} scope="row">${i + 1}</th>
+      <td> <span class=${style} > ${e[0]}:</span></td>
+      <td class= "ml-20 text-break ${style}"> ${e[1]}</td>
+    </tr>
+`;
+          })
+          .join("")}
+            </tbody></table>`;
     }
   } catch (error) {
     console.log(error);
   }
 }
-
-// async function submitFormHandler(user) {
-//   notification(null, "Sending Request:", "REGISTERING NEW USER.", "pending");
-//   let data = null;
-//   try {
-//     const response = await fetch(
-//       // "http://localhost:8080/user/new",
-//       "https://api-store-pj2y.onrender.com/user/new",
-//       {
-//         method: "POST",
-//         body: JSON.stringify(user),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-
-//     if (response.ok) {
-//       data = await response.json();
-//       if (data.hasOwnProperty("message")) {
-//         notification(null, "Invalid Action:", data.message.toUpperCase());
-//       } else {
-//         signIn("credentials", {
-//           redirect: false,
-//           email: user.email,
-//         });
-//         if (isOrdering) {
-//           router.replace("/checkout");
-//         } else {
-//           router.replace("/");
-//         }
-//         setStorage(data);
-//         notification(
-//           null,
-//           "Registered:",
-//           "USER REGISTERED SUCCESSFULLY!",
-//           "success"
-//         );
-//       }
-//     } else {
-//       throw "Connecting to the database failed!";
-//     }
-//   } catch (error) {
-//     notification(null, "Sending Request:", error.message, "error");
-//   }
-// }
-
-// function ChangeData() {
-//   const { notification } = useNotification();
-//   const route = useRouter();
-//   async function handleCheck(data, whatChange) {
-//     if (whatChange.length === 0) {
-//       notification(
-//         null,
-//         "Invalid Action:",
-//         "USER DETAILS HAVE NOT CHANGED",
-//         "error"
-//       );
-//       return;
-//     }
-//     const id = localStorage.getItem("id") || null;
-//     const hasAddress = localStorage.getItem("line_one");
-//     const httpCAll = [];
-//     const user = {
-//       route: "user",
-//       method: "PATCH",
-//       id,
-//       first_name: data.first_name,
-//       last_name: data.last_name,
-//       email_address: data.email_address,
-//     };
-//     const add = {
-//       route: "add",
-//       method: hasAddress ? "PATCH" : "POST",
-//       line_one: data.line_one,
-//       line_two: data.line_two,
-//       town_city: data.town_city,
-//       constry_state: data.constry_state,
-//       id,
-//     };
-//     setStorage(user, "not_null");
-//     adrStorage(add);
-//     if (whatChange.length === 1 && whatChange[0] === "user") {
-//       httpCAll.push(user);
-//     } else if (whatChange.length === 1 && whatChange[0] === "add") {
-//       httpCAll.push(add);
-//     } else {
-//       httpCAll.push(user);
-//       httpCAll.push(add);
-//     }
-
-//     httpCAll.forEach(async (e, index) => {
-//       let data = null;
-//       let method = null;
-
-//       try {
-//         const token = getUserToken();
-//         const response = await fetch(
-//           // `http://localhost:8080/${e.route}`,
-//           `https://api-store-pj2y.onrender.com/${e.route}`,
-//           {
-//             method: e.method,
-//             headers: {
-//               "Content-Type": "application/json",
-//               Authorization: "Bearer " + token,
-//             },
-//             body: JSON.stringify({ ...e }),
-//           }
-//         );
-//         if (response.ok) {
-//           data = await response.json();
-//         }
-//         if (data?.error) {
-//           notification(
-//             null,
-//             "Invalid Action:",
-//             data.error.toUpperCase(),
-//             "error"
-//           );
-//           return;
-//         }
-
-//         if (index === httpCAll.length - 1) {
-//           notification(
-//             null,
-//             "Sending Request:",
-//             "USER DETAILS HAVE BEEN UPDATED.",
-//             "success"
-//           );
-//           route.push("/");
-//         } else {
-//           notification(null, "Invalid Action:", data.message, "error");
-//         }
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     });
-//   }
-// }
