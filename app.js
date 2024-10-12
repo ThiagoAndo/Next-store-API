@@ -6,6 +6,7 @@ const cart = require("./routes/cart");
 const add = require("./routes/address");
 const order = require("./routes/order");
 const doc = require("./routes/docs");
+const test = require("./routes/testApi");
 const app = express();
 
 app.use(express.static(__dirname + "/public"));
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/doc", doc);
+app.use("/test", test);
 app.use("/products", products);
 app.use("/user", user);
 app.use("/cart", cart);
@@ -36,6 +38,10 @@ app.get("/download", function (req, res) {
 });
 
 app.get("/doc", (req, res) => {
+  res.render("index.html");
+});
+
+app.get("/test", (req, res) => {
   res.render("index.html");
 });
 
