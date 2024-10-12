@@ -1,13 +1,15 @@
 let singUp = document.querySelector("#signUp");
-console.log(singUp);
 
-singUp.addEventListener("click", (e) => {
+singUp.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const user = {
+  const uer = {
     password: "123456789",
     email: "ando.thiago@gmail.com",
   };
+  const formData = new FormData(singUp);
+  const user = Object.fromEntries(formData);
+
   handleLogin(user);
 });
 async function handleLogin(user) {
@@ -19,8 +21,35 @@ async function handleLogin(user) {
         "Content-Type": "application/json",
       },
     });
-    const data = await response.json();
-    console.log(data);
+
+    if (response.ok) {
+      const data = await response.json();
+      const print = document.querySelector(".login");
+      created_at: "06-08-2024h08:56:42";
+      email_address: "ando.thiago@gmail.com";
+      first_name: "Thiago";
+      id: "4jgm2z1p2qlzi4mtum";
+      last_name: "Freitas";
+      password: "$2a$12$10PuEBSwNy6KxcgY9yOZRuC83gUn1bwVJsqCNNSJMQNHZsm0NalOq";
+      console.log(data);
+
+      print.innerHTML = `   
+            <small class="text-body-secondary">id ${data?.id}</small>
+             <small class="text-body-secondary">iName ${
+               data?.first_name + " " + data?.last_name
+             }</small>
+             <small class="text-body-secondary">email ${
+               data?.email_address
+             }</small>
+             <small class="text-body-secondary">created at ${
+               data?.created_at
+             }</small>
+             <small class="text-body-secondary">password ${
+               data?.password
+             }</small>
+         
+            `;
+    }
   } catch (error) {
     console.log(error);
   }
