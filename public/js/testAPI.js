@@ -6,7 +6,8 @@ const methods = ["GET", "POST", "PATCH", "DELETE"];
 let thisMethod = null;
 let endpoint = null;
 let thisHeaders = null;
-
+import { testExport } from "/js/testModules/test.js";
+testExport();
 var myModal = new bootstrap.Modal(document.getElementById("myModal"));
 
 // var t = 2
@@ -67,8 +68,8 @@ function setFetch(route, end, type, auth) {
     default:
       endpoint = `test/${end}`;
   }
-console.log(endpoint);
-console.log("endpoint");
+  console.log(endpoint);
+  console.log("endpoint");
   switch (type) {
     case "g":
       thisMethod = "GET";
