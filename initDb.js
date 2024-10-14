@@ -3,8 +3,18 @@ const db = sql("e-comerce.db");
 const { products } = require("./data/productsData");
 const { insertP } = require("./actions/productActions");
 
-db.prepare(
-  `CREATE TABLE IF NOT EXISTS products (
+function dropTables(){
+    db.prepare(`DROP TABLE orders`).run();
+    db.prepare(`DROP TABLE cart`).run();
+    db.prepare(`DROP TABLE userAddress`).run();
+    db.prepare(`DROP TABLE users`).run();
+    db.prepare(`DROP TABLE images`).run();
+    db.prepare(`DROP TABLE products`).run();
+}
+
+function initDB() {
+  db.prepare(
+    `CREATE TABLE IF NOT EXISTS products (
        id TEXT NOT NULL  PRIMARY KEY,
        title TEXT NOT NULL UNIQUE,
        description TEXT NOT NULL,
@@ -17,10 +27,10 @@ db.prepare(
        thumbnail TEXT NOT NULL
     )
 `
-).run();
+  ).run();
 
-db.prepare(
-  `
+  db.prepare(
+    `
    CREATE TABLE IF NOT EXISTS images (
        item_id TEXT NOT NULL ,
        image TEXT NOT NULL,
@@ -28,10 +38,10 @@ db.prepare(
        REFERENCES products (id) 
          )
 `
-).run();
+  ).run();
 
-db.prepare(
-  `
+  db.prepare(
+    `
    CREATE TABLE IF NOT EXISTS users (
       email_address      TEXT NOT NULL UNIQUE,
       first_name         TEXT NOT NULL,
@@ -41,10 +51,10 @@ db.prepare(
       password           TEXT NOT NULL UNIQUE
       )
 `
-).run();
+  ).run();
 
-db.prepare(
-  `
+  db.prepare(
+    `
    CREATE TABLE IF NOT EXISTS userAddress (
        id TEXT NOT NULL ,
        line_one TEXT NOT NULL,
@@ -55,10 +65,10 @@ db.prepare(
        REFERENCES users (id) 
          )
 `
-).run();
+  ).run();
 
-db.prepare(
-  `
+  db.prepare(
+    `
    CREATE TABLE IF NOT EXISTS cart (
       user_id  TEXT NOT NULL ,
       item_id  TEXT NOT NULL ,
@@ -71,9 +81,9 @@ db.prepare(
       REFERENCES users (id) 
          )
 `
-).run();
-db.prepare(
-  `
+  ).run();
+  db.prepare(
+    `
    CREATE TABLE IF NOT EXISTS orders (
       invoice_id  INTEGER PRIMARY KEY AUTOINCREMENT,
       cart_id         INTEGER NOT NULL,
@@ -84,6 +94,9 @@ db.prepare(
       REFERENCES users (id)
       )
 `
-).run();
+  ).run();
+  insertP(products);
+}
 
-insertP(products);
+exports.dropTables = dropTables;
+exports.initDB = initDB;

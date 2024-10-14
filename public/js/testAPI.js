@@ -1,28 +1,42 @@
-const neUser = document.querySelector("#neUser");
-const arr = ["first name", "last name", "email", "password"];
+const userBtn = document.querySelectorAll(".user-btn");
+const arr = ["first_name", "last_name", "email", "password"];
 const arr2 = ["email", "password"];
 
 import { createForm } from "/js/testAPImodules/createForm.js";
 import { setFetch } from "/js/testAPImodules/HTTP.js";
 import { mode } from "/js/testAPImodules/mode.js";
-var myModal = new bootstrap.Modal(document.getElementById("myModal"));
 
 mode();
-// <!-- Modal -->
-document.querySelectorAll(".close").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    myModal.hide();
-  });
-});
 
 // var t = 2
 // if (t === 2) {
-//   // myModal.show();
+//   //;
 // }
 
-neUser.addEventListener("click", () => {
-  createForm("user", arr2, "Sing up");
-  setFetch("user", "get", "p", false);
+userBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const endPoint = btn.getAttribute("id");
+    switch (endPoint) {
+      case "get":
+        createForm("user", arr2, "Sing up");
+        setFetch("user", "get", "p", false);
+
+        break;
+      case "new":
+        createForm("user", arr, "Sing in");
+        setFetch("user", "get", "p", false);
+
+        break;
+      case "address":
+        endpoint = `add/${end}`;
+        break;
+      case "cart":
+        endpoint = `cart/${end}`;
+        break;
+      default:
+        endpoint = `test/${end}`;
+    }
+  });
 });
 
 // async function handleLogin(user) {

@@ -1,4 +1,5 @@
 // <!-- Mode -->
+
 export function mode() {
   document.querySelectorAll(".mode").forEach((btn) => {
     let which = btn.textContent.trim();

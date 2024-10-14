@@ -1,7 +1,14 @@
-const methods = ["GET", "POST", "PATCH", "DELETE"];
+var myModal = new bootstrap.Modal(document.getElementById("myModal"));
 let thisMethod = null;
 let endpoint = null;
 let thisHeaders = null;
+
+// <!-- Modal -->
+document.querySelectorAll(".close").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    myModal.hide();
+  });
+});
 
 export function setFetch(route, end, type, auth) {
   switch (route) {
@@ -45,6 +52,10 @@ export function setFetch(route, end, type, auth) {
     };
   } else {
     const token = localStorage.getItem("token");
+    if (!token) {
+      myModal.show();
+      return;
+    }
     thisHeaders = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + token,
@@ -72,13 +83,15 @@ export async function handleHTTP(obj) {
       const data = await response.json();
       const print = document.querySelector(".log");
 
-      console.log(data);
+      if (data?.token) {
+        localStorage.setItem("token", data.token);
+      }
 
       const entries = Object.entries(data);
       let style = `${"text-primary"}`;
       if (data?.message) style = `${"text-danger"}`;
 
-      print.innerHTML = ` <table class="table table-sm table-dark">
+      print.innerHTML = ` <table class="table table-sm">
    <thead>
         <h2 class="fs-6 mb-4">API response </h2>
       <tr>

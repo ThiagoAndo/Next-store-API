@@ -7,6 +7,7 @@ const add = require("./routes/address");
 const order = require("./routes/order");
 const doc = require("./routes/docs");
 const test = require("./routes/testApi");
+const { initDB, dropTables } = require("./initDb");
 const app = express();
 
 app.use(express.static(__dirname + "/public"));
@@ -15,6 +16,7 @@ app.set("view engine", "html");
 app.set("views", __dirname + "/views");
 app.engine("html", require("ejs").renderFile);
 app.use(bodyParser.json());
+let count = 0;
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
@@ -22,6 +24,17 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
+  if (count === 0) {
+    console.log("chamo");
+
+    setTimeout(() => {
+      console.log("init");
+      dropTables();
+      initDB();
+      count = 0;
+    }, 30 * 1000);
+    count = 1;
+  }
   next();
 });
 

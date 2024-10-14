@@ -4,7 +4,7 @@ const sql = require("better-sqlite3");
 const db = sql("e-comerce.db");
 const { checkAuth } = require("../util/auth");
 const { readAction, deleteAction } = require("../CRUD/actions");
-const { insertP, restore } = require("../actions/productActions");
+const { insertP } = require("../actions/productActions");
 const { isCorret } = require("../helpers/validate");
 
 router.get("/", async (req, res) => {
@@ -67,7 +67,7 @@ router.delete("/:id", async (req, res) => {
   deleteAction("images", "item_id=?", [req.params.id]);
   let ret = deleteAction("products", "id=?", [req.params.id]);
   if (ret.changes > 0) {
-    restore();
+    // restore();
     res
       .status(200)
       .json({ message: `Deleted product with id ${req.params.id}` });
