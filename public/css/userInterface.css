@@ -1,3 +1,7 @@
+    * {
+      box-sizing: border-box;
+    }
+
     .b-example-divider {
       width: 100%;
       height: 3rem;
@@ -20,7 +24,7 @@
       margin: auto;
     }
 
-    .dropup > button {
+    .dropup>button {
       width: 100%;
     }
 
@@ -46,3 +50,15 @@
       font-size: 2rem;
       margin: 5rem auto;
     }
+
+    #bd-theme {
+      border: .1em solid #0d6efd;
+    }
+
+    #bd-theme:hover {
+      border: .1em solid #003481;
+    }
+
+    /* #bd-theme::after {
+      border: .1em solid #e6e6e6;
+    } */

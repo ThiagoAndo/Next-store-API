@@ -5,7 +5,7 @@ const {
   updateAction,
   deleteAction,
 } = require("../CRUD/actions");
-const { rearranging, deleleteCart } = require("../actions/cartAction");
+const { rearranging } = require("../actions/cartAction");
 const { isValid } = require("../util/inputCheck");
 const router = express.Router();
 const { checkAuth } = require("../util/auth");
@@ -16,24 +16,24 @@ router.get("/:id", async (req, res) => {
   items = readAction("cart", "user_id=? AND bought=?", [user_id, 0]);
   items.length > 0
     ? res.status(200).json({ items })
-    : res.status(200).json({ message: "Not found" });
+    : res.status(404).json({ message: "Not found" });
 });
 router.use(checkAuth);
 router.get("/purchased/params", async (req, res) => {
   let items;
   const { user_id, cart_id } = req.query;
   if (user_id && cart_id) {
-    items = readAction("cart", "user_id=? AND bought=? AND creation_at =?", [
-      user_id,
-      1,
-      cart_id,
-    ]);
+    items = readAction(
+      "cart",
+      "user_id=? AND bought=? AND creation_at=?",
+      [user_id, 1, cart_id]
+    );
     items.length > 0
       ? res.status(200).json({ items })
-      : res.status(200).json({ message: "Not found" });
+      : res.status(404).json({ message: "Not found" });
     return;
   }
-  res.status(200).json({ message: "Not found" });
+  res.status(404).json({ message: "Not found" });
 });
 router.post("/", async (req, res) => {
   /* 
@@ -42,12 +42,11 @@ router.post("/", async (req, res) => {
          each request made to modify a product. It become necessary a logic changin in order to 
          restore the product table with the original data.
    */
-
   if (isCorret(2, req.body) && isCorret(4, req.body?.item)) {
     const data = rearranging(req.body);
     if (!isValid(data.item_id, data.user_id)) {
       res.status(200).json({
-        message: `There is no pruduct with id: ${id} or User with id: ${uId}`,
+        message: `There is no pruduct with id: ${data.item_id} or User with id: ${data.user_id}`,
       });
       return;
     }
@@ -56,7 +55,6 @@ router.post("/", async (req, res) => {
       0,
       data.item_id,
     ]);
-    console.log("chamo");
     if (item.length > 0) {
       res.status(200).json({
         message: `There is already a product with id: ${data.item_id} in the cart`,
@@ -68,7 +66,7 @@ router.post("/", async (req, res) => {
     }
     return;
   } else {
-    res.status(200).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
@@ -97,21 +95,18 @@ router.delete("/", async (req, res) => {
       req.body.user_id,
       0,
     ]);
-    console.log("ret");
-    console.log(ret);
     ret?.changes
       ? res.status(200).json({ message: `Cart deleted` })
-      : res.status(200).json({ message: `Not found` });
+      : res.status(404).json({ message: `Not found` });
     return;
   } else {
-    res.status(200).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
 });
 
 router.delete("/item", async (req, res) => {
-  console.log(req.body);
   if (isCorret(1, req.body)) {
     let ret = deleteAction("cart", "item_id = ? AND user_id=?", [
       req.body.cart.item_id,
@@ -119,10 +114,10 @@ router.delete("/item", async (req, res) => {
     ]);
     ret?.changes
       ? res.status(200).json({ message: `Item deleted` })
-      : res.status(200).json({ message: `Not found` });
+      : res.status(404).json({ message: `Not found` });
     return;
   } else {
-    res.status(200).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }

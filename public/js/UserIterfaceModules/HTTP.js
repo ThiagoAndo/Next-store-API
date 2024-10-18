@@ -1,5 +1,4 @@
-import { logResp } from "/js/userIterfaceModules/logResp.js";
-
+import { logResp } from "/js/UserIterfaceModules/logResp.js";
 const myModal = new bootstrap.Modal(document.getElementById("myModal"));
 export const loadSpining = new bootstrap.Modal(
   document.getElementById("loader")
@@ -7,7 +6,6 @@ export const loadSpining = new bootstrap.Modal(
 let thisMethod = "GET";
 let endpoint = null;
 let thisHeaders = null;
-
 // <!-- Modal -->
 document.querySelectorAll("#close").forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -18,7 +16,6 @@ document.querySelectorAll("#close").forEach((btn) => {
     }
   });
 });
-
 export function setFetch(route, end, type, auth) {
   switch (route) {
     case "user":
@@ -32,6 +29,9 @@ export function setFetch(route, end, type, auth) {
       break;
     case "cart":
       endpoint = `cart/${end}`;
+      break;
+    case "order":
+      endpoint = `order/${end}`;
       break;
     default:
       endpoint = `test/${end}`;
@@ -52,7 +52,6 @@ export function setFetch(route, end, type, auth) {
     default:
       thisMethod = "GET";
   }
-
   if (!auth) {
     thisHeaders = {
       "Content-Type": "application/json",
@@ -69,13 +68,10 @@ export function setFetch(route, end, type, auth) {
     };
   }
 }
-
 export async function handleHTTP(obj, end = undefined, print = false) {
   let response = null;
   endpoint = end || endpoint;
   loadSpining.show();
-  // console.log(thisHeaders);
-  // console.log("thisHeaders");
   try {
     if (thisMethod === "GET") {
       response = await fetch(`${endpoint}`, {
@@ -92,7 +88,6 @@ export async function handleHTTP(obj, end = undefined, print = false) {
         },
       });
     }
-
     if (response?.ok) {
       const data = await response.json();
       if (print) {
@@ -100,7 +95,6 @@ export async function handleHTTP(obj, end = undefined, print = false) {
       } else {
         return data;
       }
-
       if (data?.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("email", data.email_address);
@@ -109,8 +103,12 @@ export async function handleHTTP(obj, end = undefined, print = false) {
           localStorage.clear();
         }, 60 * 60 * 1000);
       }
+    } else {
+      const data = await response.json();
+      const end = endpoint.split("/")[0];
+      logResp(data, `notOk/${end}`);
     }
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 }

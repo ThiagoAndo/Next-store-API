@@ -1,29 +1,25 @@
 let print = null;
 let style = null;
-import { loadSpining } from "/js/userIterfaceModules/HTTP.js";
-
+import { loadSpining } from "/js/UserIterfaceModules/HTTP.js";
 export function logResp(data, endpoint) {
   setTimeout(() => {
     loadSpining.hide();
   }, 500);
-  if (data?.message) style = `${"text-warning"}`;
-  style = `${"text-primary"}`;
+  if (data?.message) style = "text-warning";
+  else style = "text-primary";
   if (endpoint.startsWith("user")) {
     getEntries("user", data);
   }
-
   if (endpoint.startsWith("add")) {
     getEntries("add", data);
   }
-
-  if (endpoint.startsWith("product")) {
-    print = document.querySelector(".logpro");
+  if (endpoint.startsWith("products")) {
+    print = document.querySelector(".logproducts");
     print.innerHTML = null;
     const { products } = data;
     const { images } = data;
     let entries = null;
     let arr = [];
-
     if (products) {
       products.map((p) => {
         p.images = images.filter((i) => i.item_id === p.id);
@@ -36,7 +32,6 @@ export function logResp(data, endpoint) {
             arr.push(entries[1]);
           });
         }
-
         entries = Object.entries(p);
         printIt([entries.slice(0, 10), arr], i);
       });
@@ -51,7 +46,6 @@ export function logResp(data, endpoint) {
       printIt([arr], 0);
     }
   }
-
   if (endpoint.startsWith("cart")) {
     print = document.querySelector(".logcart");
     print.innerHTML = null;
@@ -66,15 +60,33 @@ export function logResp(data, endpoint) {
       printIt([entries], 0);
     }
   }
+  if (endpoint.startsWith("order")) {
+    print = document.querySelector(".logorder");
+    print.innerHTML = null;
+    if (data?.length >= 1) {
+      data.forEach((p, i) => {
+        const entries = Object.entries(p);
+        printIt([entries], i);
+      });
+    } else {
+      const entries = Object.entries(data);
+      printIt([entries], 0);
+    }
+  }
+  if (endpoint.startsWith("notOk")) {
+    style = "text-danger";
+    print = document.querySelector(`.log${endpoint.split("/")[1]}`);
+    print.innerHTML = null;
+    const entries = Object.entries(data);
+    printIt([entries], 0);
+  }
 }
-
 function getEntries(log, data) {
   print = document.querySelector(`.log${log}`);
   print.innerHTML = null;
   const entries = Object.entries(data);
   printIt([entries], 0);
 }
-
 function printIt(entries, i) {
   print.innerHTML += ` <table class="table table-sm">
    <thead>
@@ -93,7 +105,6 @@ function printIt(entries, i) {
        </tbody>
    </table>`;
 }
-
 function taBleRows(entries) {
   return entries
     .map((e, i) => {

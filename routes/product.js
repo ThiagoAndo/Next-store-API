@@ -16,6 +16,7 @@ router.get("/categories", async (req, res) => {
   const ret = db.prepare(`SELECT DISTINCT category FROM products`).all();
   res.status(200).json(ret);
 });
+
 router.get("/bycategories", async (req, res) => {
   const { category } = req.query;
   const images = [];
@@ -39,9 +40,10 @@ router.get("/bycategories", async (req, res) => {
     res.status(200).json({ products, images });
     return;
   } else {
-    res.status(200).json({ message: `No product found` });
+    res.status(404).json({ message: `No product found` });
   }
 });
+
 router.get("/byid/:id", async (req, res) => {
   const id = req.params.id;
   const products = readAction("products", "id = ?", [id]);
@@ -49,8 +51,8 @@ router.get("/byid/:id", async (req, res) => {
   products?.length
     ? res.status(200).json({ products, images })
     : res
-        .status(200)
-        .json({ message: `Could not found product with id: ${id}` });
+        .status(404)
+        .json({ message: `Could not find product with id: ${id}` });
 });
 router.use(checkAuth);
 
@@ -66,26 +68,31 @@ router.post("/", (req, res) => {
       return;
     }
   } else {
-    res.status(407).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
 });
 
 router.delete("/", async (req, res) => {
-  const id = req.body.id;
-  deleteAction("images", "item_id=?", [id]);
-  let ret = deleteAction("products", "id=?", [id]);
-  if (ret.changes > 0) {
-    // restore();
-    res
-      .status(200)
-      .json({ message: `Deleted product with id ${id}` });
-    return;
+  if (isCorret(1, req?.body)) {
+    const id = req.body.id;
+    deleteAction("images", "item_id=?", [id]);
+    let ret = deleteAction("products", "id=?", [id]);
+
+    if (ret.changes > 0) {
+      // restore();
+      res.status(200).json({ message: `Deleted product with id ${id}` });
+      return;
+    } else {
+      res
+        .status(404)
+        .json({ message: `Could not delete product with id ${id}` });
+    }
   } else {
-    res
-      .status(200)
-      .json({ message: `Could not delete product with id ${id}` });
+    res.status(500).json({
+      message: `Incomplete Body`,
+    });
   }
 });
 module.exports = router;

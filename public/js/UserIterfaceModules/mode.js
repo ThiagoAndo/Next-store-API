@@ -1,5 +1,4 @@
 // <!-- Mode -->
-
 export function mode() {
   document.querySelectorAll(".mode").forEach((btn) => {
     let which = btn.textContent.trim();
@@ -13,7 +12,6 @@ export function mode() {
     });
   });
 }
-
 function titleMode() {
   document.querySelectorAll(".title").forEach((t) => {
     const style = t.getAttribute("class");
@@ -24,6 +22,5 @@ function titleMode() {
       t.classList.remove("text-dark");
       t.classList.add("text-white");
     }
-    console.log(t.getAttribute("class"));
   });
 }

@@ -80,7 +80,7 @@
    <span style="color:black;"> "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN0ZXBoZW5raW5nQGxvcmVtLmNvbSIsImlhdCI6MTcyMDk3NzU5NywiZXhwIjoxNzIwOTgxMTk3fQ.YyJ35C73_1hULnTJfszzZmj3I2kSlNQnRDp2nHrhug8"</span>
 }</code></pre>
           </div>
-          <strong>Example response <span class="delete">404</span>:</strong>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
           <div class="response">
             <pre><code>{ message: "Incomplete Body" }</code></pre>
             <pre><code>{ message: "Email already registered"}</code></pre>
@@ -122,7 +122,7 @@
 }</code></pre>
           </div>
           <br />
-          <strong>Example response <span class="delete">404</span>:</strong>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
           <div class="response">
             <pre><code>{ message: "Incomplete Body" }</code></pre>
             <pre><code>{ message: "Wrong password"}</code></pre>
@@ -156,11 +156,11 @@
             <pre><code> { message: "Updated user detail with id XXXX"}</code></pre>
           </div>
           <br />
-          <strong>Example response <span class="delete">404</span>:</strong>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
           <div class="response">
             <pre><code>{ message: "Incomplete Body" }</code></pre>
             <pre><code>{ message: "Could not update user with id XXXX"}</code></pre>
-            <pre><code>{ message: "This email has been used by an other user or id is incorrect"}</code></pre>
+            <pre><code>{ message: "This email has been used by an other user or user id is incorrect"}</code></pre>
             <pre><code>{ message: "Name is not valid. Make sure to enter first and last name only"}</code></pre>
             <pre><code>{ message: "Email is not valid"}</code></pre>
           </div>
@@ -191,7 +191,7 @@
             <pre><code> { message: "Updated user detail with id XXXX"}</code></pre>
           </div>
           <br />
-          <strong>Example response <span class="delete">404</span>:</strong>
+          <strong>Example response <span class="delete">404 / 500</span>:</strong>
           <div class="response">
             <pre><code>{ message: "Incomplete Body" }</code></pre>
             <pre><code>{ message: "Could not update user with id XXXX"}</code></pre>
@@ -221,7 +221,7 @@
           </div>
         </div>
         <br />
-        <p>Example response <span class="delete">404</span>:</p>
+        <strong>Example response <span class="delete">404 / 500</span>:</strong>
         <div class="response">
           <pre><code>{ message: "Incomplete Body" }</code></pre>
           <pre><code>{ message: "Could not delete user with id XXXX"}</code></pre>
@@ -234,12 +234,11 @@
     crossorigin="anonymous"></script>
   <script src="../js/script.js"></script>
 </body>
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-  <div class="col-md-4 d-flex align-items-center">
-    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 <a href="# ">Thiago Ando de Freitas</a></span>
-  </div>
-</footer>
-
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 <a
+        href="https://thiago-freitas-portfolio.vercel.app/">Thiago Ando de Freitas</a></span>
+  </footer>
 </div>
 
 </html>

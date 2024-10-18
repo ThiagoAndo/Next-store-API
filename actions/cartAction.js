@@ -1,4 +1,4 @@
-const { readAction, deleteAction } = require("../CRUD/actions");
+const { readAction } = require("../CRUD/actions");
 const { getCurrentDate } = require("../helpers/dateGenerator");
 
 function isProduct(id) {
@@ -7,9 +7,15 @@ function isProduct(id) {
   return ret;
 }
 function rearranging(body) {
+  let creation_at = null;
   const { item, user_id } = body;
   let { id: item_id, name, price, quantity: qnt } = item;
-  const creation_at = getCurrentDate();
+  const hasCart = readAction("cart", "bought=?", [0]);
+  if (hasCart.length > 0) {
+    creation_at = hasCart[0].creation_at;
+  } else {
+    creation_at = getCurrentDate();
+  }
   return {
     user_id,
     item_id,

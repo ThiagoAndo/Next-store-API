@@ -1,18 +1,14 @@
-import { handleHTTP } from "/js/userIterfaceModules/HTTP.js";
-import { tidyHolder } from "/js/userIterfaceModules/createForm.js";
-import { loadSpining } from "/js/userIterfaceModules/HTTP.js";
-
+import { handleHTTP } from "/js/UserIterfaceModules/HTTP.js";
+import { tidyHolder } from "/js/UserIterfaceModules/createForm.js";
+import { loadSpining } from "/js/UserIterfaceModules/HTTP.js";
 export async function dropDown() {
-  const form = document.querySelector("#pro");
-
+  const form = document.querySelector("#products");
   const response = await handleHTTP(null, "products/categories");
-
   if (response) {
     setTimeout(() => {
       loadSpining.hide();
     }, 500);
   }
-
   const content = ` <div class="dropup">
       <button
         type="button"
@@ -35,7 +31,7 @@ export async function dropDown() {
       </div>
     </div>
     <br/>
-    <div class=logpro>`;
+    <div class=logproducts>`;
   form.innerHTML = content;
   document.querySelectorAll(".dropdown-item").forEach((btn) => {
     btn.addEventListener("click", (e) => {

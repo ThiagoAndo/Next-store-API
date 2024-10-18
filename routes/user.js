@@ -19,7 +19,8 @@ router.post("/get", async (req, res) => {
     res.status(200).json(user);
     return;
   } else {
-    res.status(407).json({
+    console.log("chamo")
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
@@ -32,7 +33,7 @@ router.post("/new", async (req, res) => {
     res.status(201).json(ret);
     return;
   } else {
-    res.status(407).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
@@ -51,14 +52,14 @@ router.patch("/", async (req, res) => {
       userRet?.email_address === user.email_address &&
       userRet?.id != user.id
     ) {
-      res.status(200).json({
-        error: `This email has been used by an other user or id is incorrect.`,
+      res.status(400).json({
+        error: `This email has been used by an other user or user id is incorrect.`,
       });
       return;
     } else if (userRet === undefined) {
       const isOk = isDataOk(user);
       if (isOk) {
-        res.status(200).json({
+        res.status(404).json({
           message: isOk.message,
         });
         return;
@@ -71,8 +72,8 @@ router.patch("/", async (req, res) => {
     ) {
       const isOk = isDataOk(user);
       if (isOk) {
-        res.status(200).json({
-          message: isOk,
+        res.status(404).json({
+       ... isOk,
         });
         return;
       }
@@ -96,7 +97,7 @@ router.patch("/", async (req, res) => {
       return;
     }
   } else {
-    res.status(407).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
     return;
@@ -117,11 +118,11 @@ router.patch("/password", async (req, res) => {
       ? res.status(200).json({
           message: `Updated user\`s password detail with id ${user.id}`,
         })
-      : res.status(200).json({
+      : res.status(404).json({
           message: `Could not update user\`s password with id ${user.id}`,
         });
   } else {
-    res.status(407).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
     return;
@@ -138,11 +139,11 @@ router.delete("/", async (req, res) => {
     ret.changes > 0
       ? res.status(200).json({ message: `Deleted user with id ${user.id}` })
       : res
-          .status(200)
+          .status(404)
           .json({ message: `Could not delete user with id ${user.id}` });
     return;
   } else {
-    res.status(407).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }

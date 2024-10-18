@@ -95,8 +95,7 @@ function initDB() {
       )
 `
   ).run();
-  insertP(products);
 }
-
+// initDB()
 exports.dropTables = dropTables;
 exports.initDB = initDB;

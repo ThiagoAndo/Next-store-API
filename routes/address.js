@@ -9,7 +9,7 @@ const { isCorret } = require("../helpers/validate");
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   if (!isValid(null, id)) {
-    res.status(407).json({
+    res.status(500).json({
       message: `There is no user with id: ${id}`,
     });
     return;
@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
     const [ret] =add
     res.status(200).json(ret);
   } else {
-    res.status(200).json({ message: "not registered" });
+    res.status(404).json({ message: "not registered" });
   }
 });
 router.use(checkAuth);
@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
   if (isCorret(5, req.body)) {
     const id = req.body.id;
     if (!isValid(null, id)) {
-      res.status(407).json({
+      res.status(500).json({
         message: `There is no user with id: ${id}`,
       });
       return;
@@ -38,11 +38,11 @@ router.post("/", (req, res) => {
       res.status(201).json({ message: "Address created successufuly" });
       return;
     } else {
-      res.status(200).json({ message: "Already registered" });
+      res.status(500).json({ message: "Already registered" });
       return;
     }
   } else {
-    res.status(200).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
@@ -52,7 +52,7 @@ router.patch("/", async (req, res) => {
   if (isCorret(5, req.body)) {
     const id = req.body.id;
     if (!isValid(null, id)) {
-      res.status(200).json({
+      res.status(500).json({
         message: `There is no user with id: ${id}`,
       });
       return;
@@ -74,11 +74,11 @@ router.patch("/", async (req, res) => {
           .status(201)
           .json({ message: `Updated address with id ${address.id}` })
       : res
-          .status(200)
-          .json({ message: `Could not update address with id ${address.id}` });
+          .status(404)
+          .json({ message: `Could not update address of user with id ${address.id}` });
     return;
   } else {
-    res.status(200).json({
+    res.status(500).json({
       message: `Incomplete Body`,
     });
   }
