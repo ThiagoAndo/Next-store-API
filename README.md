@@ -1,21 +1,21 @@
-<center><h1> Multi REST API's web application </h1> </center> </br><p align="center"> <img width="300" src="assets/screenshots/Fetch.png"></p>
+<center><h1> Next Store API </h1> </center> </br><p align="center"> <img width="300" src="assets/Fetch.png"></p>
   
-<div style="text-align: justify">
-This web application was originally built using vanilla JavaScript <a href="https://github.com/ThiagoAndo/rest-countries-api-with-color-theme-switcher-master.git">REST Countries API</a>. However, as with everything in life, growth and evolution are inevitable. To reflect my personal development, I decided to enhance the application by rebuilding it in React and integrating additional APIs to provide a more comprehensive user experience.
-</br>
-</br>
-The updated version offers more detailed information about countries from the REST Countries API and also includes data about the user's location. I encountered many challenges along the way, but I also had a lot of fun developing this project.
-</br>
-</br>
-I hope you enjoy using the app as much as I enjoyed building it, and that you're able to learn something from it too. If you have any questions or just want to say hello, feel free to reach out to me on X (formerly Twitter) at @Thiago09455827.
+<div >
+        <p style="text-align: justify"> Welcome to the Next Store API. This project includes <a href="https://next-store-api-62m2.onrender.com/doc">API documentation</a>, a Postman collection, and a<a href="https://next-store-api-62m2.onrender.com/doc"> website</a> built to interact with it.
+        The products endpoint provides a comprehensive dataset of
+          sample   product information,  including details like names, prices, descriptions, images, and categories, ideal for testing and prototyping e-commerce applications. This API allows you to manage and retrieve products, users, users' address, users'carts and users' purchases. This is a Restful API build using Node.js and Next.js. It also uses a package called <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> that allows you to create a local relational database and query it using Node.js. Thus, some routes require the client to send one JSON object per request, which will be inserted into the table.
+          <br />
+          <br /><br />
+          <span style="font-weight:bold"> Note : You may experience a delay on your first request to the server when using the hosted due to the free hosting service provided by RENDER.</span>
+        </p>
+       
 </div>
 
 ## Table of contents
 
 - [Overview](#overview)
   - [Built using](#screenshot)
-  - [APIs](#apis)
-  - [Flowchart](#flowchart)
+  - [Folder structure](#folder-structure)
   - [Screenshot](#screenshot)
 - [Local development](#local-development)
   - [Instructions](#instructions)
@@ -25,51 +25,33 @@ I hope you enjoy using the app as much as I enjoyed building it, and that you're
 
 ## Overview
 
-### Users is be able to:
+ <h3 class="margin">The API provides endpoints for managing and retrieving:</h3>
+        <ul>
+          <li>Products</li>
+          <li>Users</li>
+          <li>Users' Addresses</li>
+          <li>Users' Carts</li>
+          <li>Users' Purchases</li>
+        </ul>
 
-- See all countries from the REST Countries API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Click on country weather button to see the detailed forecast
-- Toggle the color scheme between light and dark mode _(optional)_
-- Click on given nav link and access information of their location
-- See all counties in Ireland on Ireland page
-- Search for an Irish county using an `input` field
-- Filter Irish couties by region
-- Click on links provided on the Irish cards to see information and weather detail about it
+## Built using
 
-### Built using
+- Express JS
+- Jsonwebtoken
+- Nodemailer
+- Body-parser
+- Bcryptjs
+- Bootstrap
 
-- ReactJS
-- Mui material
-- Redux toolkit
-- Framer motion
-- Leaflet
-- React router dom
-- Mobiletfirst workflow
-- useContext API
-- React Bootstrap
-
-### APIs
-
-- REST Countries
-- TimeZoneDB
-- Geoapify
-- OpenWeather
-- GeoHive-(Population by Sex and Marital Status, Electoral Division, Census 2016, Theme 1.2, Ireland, 2016, CSO & Tailte Éireann)
-
-### Flowchart
+## Folder structure
 
 </br>
 </br>
 </br>
 
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/Multi-API.png" alt="Mobile Version Picture">
+    <img  src="assets/projectStructure.png" alt="Mobile Version Picture">
 </p>
-</br>
 </br>
 </br>
 
@@ -77,79 +59,90 @@ I hope you enjoy using the app as much as I enjoyed building it, and that you're
 
 </br>
 </br>
+</br>
 
+### API documentation
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/home.png" alt="Mobile Version Picture">
-     <figcaption>Fig.1 - Home page</figcaption>
+    <img  src="assets/screenshots/doc_2.png" width="500 alt="Mobile Version Picture">
+</br>
 </p>
 </br>
 </br>
-
+</br>
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/countrySearch.png" alt="Mobile Version Picture">
-     <figcaption>Fig.2 - Input search</figcaption>
+    <img  src="assets/screenshots/doc_3.png" width="500 alt="Mobile Version Picture">
+</br>
 </p>
 </br>
 </br>
-
-<p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/countryFilter.png" alt="Mobile Version Picture">
-     <figcaption>Fig.2 - Input fielter</figcaption>
-</p>
-
-</br>
-</br>
-
-<p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/expanded.png" alt="Mobile Version Picture">
-     <figcaption>Fig.3 - Country detailed</figcaption>
-</p>
-
-</br>
-</br>
-
-<p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/countySearch.png" alt="Mobile Version Picture">
-     <figcaption>Fig.4 - Irish counties input search</figcaption>
-</p>
-
-</br>
 </br>
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/countyFilter.png" alt="Mobile Version Picture">
-     <figcaption>Fig.5 - Irish counties input filter</figcaption>
+    <img  src="assets/screenshots/doc_1.png" width="500 alt="Mobile Version Picture">
+</br>
 </p>
+</br>
+
+### UI 
+
+<p align="center">
+    <img src="./assets/screenshots/img_1.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
+<p align="center">
+     <img src="./assets/screenshots/img_2.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
 
 </br>
-</br>
-<p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/full.png" alt="Mobile Version Picture">
-     <figcaption>Fig.5 -Full forecast application</figcaption>
+<p align="center" >
+      <img src="./assets/screenshots/img_3.png" width="500" alt="Mobile Version Picture">
 </p>
+</br>
+<p align="center">
+       <img src="./assets/screenshots/img_4.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
+<p align="center">
+       <img src="./assets/screenshots/img_4.1.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
+<p align="center">
+       <img src="./assets/screenshots/img_4.2.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
+<p align="center">
+       <img src="./assets/screenshots/img_4.3.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
+<p align="center">
+       <img src="./assets/screenshots/img_5.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
+<p align="center">
+      <img src="./assets/screenshots/img_6.png" width="500" alt="Mobile Version Picture">
+</p>
+</br>
 
-</br>
-</br>
-</br>
+## Links
+- Alive website - [User Interface to test API](https://next-store-api-62m2.onrender.com/userInterface)
+- Alive website - [API documentation](https://next-store-api-62m2.onrender.com/doc)
+- Note : You may experience a delay in server response on your first 
+request due to the free hosting service
+provided by RENDER.
+
 
 <img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
 
+
 ## Local development
 
-To run the project from a container, ensure that Node.js (version 14 or higher) and npm (version 7 or higher) are installed on your development machines.
+To run the project from a container, ensure that Node.js (version 14 or higher) and npm (version 7 or higher) are installed on your development machine.
 
 ### Instructions
 
 - Fork this repository
 - Clone your forked repository
 - CD into the project folder
-- Sing up to Geoapify, TimeZoneDB and OpenWeather APIs to optain your user keys. They all provide free services.
-- Create a `.env` file in the root directory with those variables:
-
-```shell
-VITE_GEOPIFY= your Geoapify key
-VITE_TIME_ZONE_KEY= your TimeZoneDB key
-VITE_WEATHER_SECRETE_KEY= your OpenWeather key
-```
 
 To install the application:
 
@@ -160,27 +153,31 @@ npm install
 To start the development server:
 
 ```shell
-npm npm run dev
+node app.js
 ```
 
 ### 🧪 Test
 
-After the project is installed and running, you can simulate accessing the application from abroad using Git by running the following command:
+After the project is installed and running, you can understand and test the application by readding the documentation. All you have to do is to enter the following url:
 
 ```shell
-git checkout 68cedd3
+http://localhost:8080/doc
 ```
 
-Or if you want simulate accessing the application from a remote Irish countie run:
+Or if you wish to interact with it by using a intuitive front-end website:
 
 ```shell
-git checkout 272f4ad
+http://localhost:8080/userInterface
 ```
+
+If you would like to check a real e-commerce website which uses Next-tore-API as backend go to this repository <a href="https://github.com/ThiagoAndo/Store-e-commerce.git"><span style=" font-style: italic">Store-e-commerce</span></a>:
 
 ## Author
 
 - Github - [Thiago Ando de Freitas](https://github.com/ThiagoAndo)
-- Alive Website - [rest-countries-api](https://rest-mult-api.netlify.app)
+- Personal website - [Portfolio](https://thiago-freitas-portfolio.vercel.app/)
+
+
 </br></br>
 <div style="text-align: center" >
 <h3 style="color:black;">"The impediment to action advances action. What stands in the way becomes the way."</h3>
