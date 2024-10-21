@@ -77,12 +77,6 @@
 </br>
 </br>
 </br>
-<p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/doc_1.png" width="700">
-</br>
-</p>
-</br>
-
 ### UI
 
 <p align="center">
