@@ -78,7 +78,7 @@
 </br>
 </br>
 
-### UI
+### User Interface
 
 <p align="center">
     <img src="./assets/screenshots/img_1.png" width="700" >
