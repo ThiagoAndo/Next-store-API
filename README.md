@@ -98,9 +98,7 @@
        <img src="./assets/screenshots/img_4.png" width="700" >
 </p>
 </br>
-<p align="center">
-       <img src="./assets/screenshots/img_4.1.png" width="700" >
-</p>
+
 </br>
 <p align="center">
        <img src="./assets/screenshots/img_4.2.png" width="700" >
@@ -114,10 +112,7 @@
        <img src="./assets/screenshots/img_5.png" width="700" >
 </p>
 </br>
-<p align="center">
-      <img src="./assets/screenshots/img_6.png" width="700" >
-</p>
-</br>
+
 
 ## Links
 
