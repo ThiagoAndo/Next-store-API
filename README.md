@@ -1,12 +1,12 @@
 <center><h1> Next Store API </h1> </center> </br><p align="center"> <img width="300" src="assets/Fetch.png"></p>
   
-<div >
-        <p style="text-align: justify"> Welcome to the Next Store API. This project includes <a href="https://next-store-api-62m2.onrender.com/doc">API documentation</a>, a Postman collection, and a<a href="https://next-store-api-62m2.onrender.com/doc"> website</a> built to interact with it.
+<div>
+        <p > Welcome to the Next Store API. This project includes <a href="https://next-store-api-62m2.onrender.com/doc">API documentation</a>, a Postman collection, and a<a href="https://next-store-api-62m2.onrender.com/doc"> website</a> built to interact with it.
         The products endpoint provides a comprehensive dataset of
-          sample   product information,  including details like names, prices, descriptions, images, and categories, ideal for testing and prototyping e-commerce applications. This API allows you to manage and retrieve products, users, users' address, users'carts and users' purchases. This is a Restful API build using Node.js and Next.js. It also uses a package called <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> that allows you to create a local relational database and query it using Node.js. Thus, some routes require the client to send one JSON object per request, which will be inserted into the table.
+          sample   product information,  including details like names, prices, descriptions, images, and categories, ideal for testing and prototyping e-commerce applications. This API allows you to manage and retrieve products, users, users' addresses, users'carts and users' purchases. This is a Restful API build using Node.js and Next.js. It also uses a package called <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> that allows you to create a local relational database and query it using Node.js. Thus, some routes require the client to send one JSON object per request, which will be inserted into the table.
           <br />
           <br /><br />
-          <span style="font-weight:bold"> Note : You may experience a delay on your first request to the server when using the hosted due to the free hosting service provided by RENDER.</span>
+          <span style="font-weight:bold"> Note: You may experience a delay on your first request to the server when using the hosted API due to the free hosting service provided by RENDER.</span>
         </p>
        
 </div>
@@ -14,14 +14,14 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [Built using](#screenshot)
+  - [Built using](#built-using)
   - [Folder structure](#folder-structure)
   - [Screenshot](#screenshot)
+  - [Links](#links)
 - [Local development](#local-development)
   - [Instructions](#instructions)
   - [Test](#🧪-test)
-  - [Useful resources](#useful-resources)
-- [Author and alive web site links](#author)
+- [Author](#author)
 
 ## Overview
 
@@ -50,7 +50,7 @@
 </br>
 
 <p align="center" style="solid 1px red">
-    <img  src="assets/projectStructure.png" alt="Mobile Version Picture">
+    <img  src="assets/projectStructure.png" >
 </p>
 </br>
 </br>
@@ -62,77 +62,77 @@
 </br>
 
 ### API documentation
+
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/doc_2.png" width="500 alt="Mobile Version Picture">
+    <img  src="assets/screenshots/doc_2.png" width="700" >
 </br>
 </p>
 </br>
 </br>
 </br>
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/doc_3.png" width="500 alt="Mobile Version Picture">
+    <img  src="assets/screenshots/doc_3.png" width="700">
 </br>
 </p>
 </br>
 </br>
 </br>
 <p align="center" style="solid 1px red">
-    <img  src="assets/screenshots/doc_1.png" width="500 alt="Mobile Version Picture">
+    <img  src="assets/screenshots/doc_1.png" width="700">
 </br>
 </p>
 </br>
 
-### UI 
+### UI
 
 <p align="center">
-    <img src="./assets/screenshots/img_1.png" width="500" alt="Mobile Version Picture">
+    <img src="./assets/screenshots/img_1.png" width="700" >
 </p>
 </br>
 <p align="center">
-     <img src="./assets/screenshots/img_2.png" width="500" alt="Mobile Version Picture">
+     <img src="./assets/screenshots/img_2.png" width="700" >
 </p>
 </br>
 
 </br>
 <p align="center" >
-      <img src="./assets/screenshots/img_3.png" width="500" alt="Mobile Version Picture">
+      <img src="./assets/screenshots/img_3.png" width="700" >
 </p>
 </br>
 <p align="center">
-       <img src="./assets/screenshots/img_4.png" width="500" alt="Mobile Version Picture">
+       <img src="./assets/screenshots/img_4.png" width="700" >
 </p>
 </br>
 <p align="center">
-       <img src="./assets/screenshots/img_4.1.png" width="500" alt="Mobile Version Picture">
+       <img src="./assets/screenshots/img_4.1.png" width="700" >
 </p>
 </br>
 <p align="center">
-       <img src="./assets/screenshots/img_4.2.png" width="500" alt="Mobile Version Picture">
+       <img src="./assets/screenshots/img_4.2.png" width="700" >
 </p>
 </br>
 <p align="center">
-       <img src="./assets/screenshots/img_4.3.png" width="500" alt="Mobile Version Picture">
+       <img src="./assets/screenshots/img_4.3.png" width="700" >
 </p>
 </br>
 <p align="center">
-       <img src="./assets/screenshots/img_5.png" width="500" alt="Mobile Version Picture">
+       <img src="./assets/screenshots/img_5.png" width="700" >
 </p>
 </br>
 <p align="center">
-      <img src="./assets/screenshots/img_6.png" width="500" alt="Mobile Version Picture">
+      <img src="./assets/screenshots/img_6.png" width="700" >
 </p>
 </br>
 
 ## Links
+
 - Alive website - [User Interface to test API](https://next-store-api-62m2.onrender.com/userInterface)
 - Alive website - [API documentation](https://next-store-api-62m2.onrender.com/doc)
-- Note : You may experience a delay in server response on your first 
-request due to the free hosting service
-provided by RENDER.
-
+- Note : You may experience a delay in server response on your first
+  request due to the free hosting service
+  provided by RENDER.
 
 <img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
-
 
 ## Local development
 
@@ -143,6 +143,15 @@ To run the project from a container, ensure that Node.js (version 14 or higher) 
 - Fork this repository
 - Clone your forked repository
 - CD into the project folder
+- Create a Gmail account if you don’t have one. Additionally, enable two-step verification on your Google Account to generate an App Password. You will find usefull informations about how to do it on <a href="https://medium.com/@ayushnandanwar003/a-step-by-step-guide-to-sending-emails-with-node-js-and-nodemailer-via-gmail-c6fe1810f9fe">this resource</a>.
+- Create a `.env` file in the root directory with those variables:
+
+```shell
+NODE_ENV = development
+PORT =8080
+EMAIL = YOUR EMAIL
+PASSWORD = YOUR PASSWORD
+```
 
 To install the application:
 
@@ -177,8 +186,8 @@ If you would like to check a real e-commerce website which uses Next-tore-API as
 - Github - [Thiago Ando de Freitas](https://github.com/ThiagoAndo)
 - Personal website - [Portfolio](https://thiago-freitas-portfolio.vercel.app/)
 
-
 </br></br>
+
 <div style="text-align: center" >
 <h3 style="color:black;">"The impediment to action advances action. What stands in the way becomes the way."</h3>
 <h3 style="color:black;">Marcus Aurelius </h3>
