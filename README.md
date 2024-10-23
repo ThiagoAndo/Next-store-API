@@ -6,8 +6,7 @@
           sample   product information,  including details like names, prices, descriptions, images, and categories, ideal for testing and prototyping e-commerce applications. This API allows you to manage and retrieve products, users, users' addresses, users'carts and users' purchases. This is a Restful API build using Node.js and Next.js. It also uses a package called <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> that allows you to create a local relational database and query it using Node.js. Thus, some routes require the client to send one JSON object per request, which will be inserted into the table.
           <br />
           <br /><br />
-          <span style="font-weight:bold"> Note: You may experience a delay on your first request to the server when using the hosted API due to the free hosting service provided by RENDER.</span>
-        </p>
+        
        
 </div>
 
@@ -118,10 +117,6 @@
 
 - Alive website - [User Interface to test API](https://next-store-api-62m2.onrender.com/userInterface)
 - Alive website - [API documentation](https://next-store-api-62m2.onrender.com/doc)
-- Note : You may experience a delay in server response on your first
-  request due to the free hosting service
-  provided by RENDER.
-
 <img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
 
 ## Local development
@@ -175,7 +170,8 @@ If you would like to check a real e-commerce website which uses Next-tore-API as
 
 - Github - [Thiago Ando de Freitas](https://github.com/ThiagoAndo)
 - Personal website - [Portfolio](https://thiago-freitas-portfolio.vercel.app/)
-
+- Alive API - [Documentation](https://next-store-api-62m2.onrender.com/doc)
+- Alive API - [UI](https://next-store-api-62m2.onrender.com/userInterface)
 </br></br>
 
 <div style="text-align: center" >

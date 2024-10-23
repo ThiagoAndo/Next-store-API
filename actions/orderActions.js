@@ -28,9 +28,9 @@ function insertOrder(user_id, name, email, cart) {
       thisRet.changes = 1;
       return thisRet;
     } else {
-      updateAction("cart", "bought = ?", "user_id=? ", [1, user_id]);
       const ret = createAction("orders", invoice);
       ret.changes > 0 ? buildMail(thisCart, name, total, email) : null;
+      updateAction("cart", "bought = ?", "user_id=? ", [1, user_id]);
       return ret;
     }
   } else {

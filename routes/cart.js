@@ -23,11 +23,11 @@ router.get("/purchased/params", async (req, res) => {
   let items;
   const { user_id, cart_id } = req.query;
   if (user_id && cart_id) {
-    items = readAction(
-      "cart",
-      "user_id=? AND bought=? AND creation_at=?",
-      [user_id, 1, cart_id]
-    );
+    items = readAction("cart", "user_id=? AND bought=? AND creation_at=?", [
+      user_id,
+      1,
+      cart_id,
+    ]);
     items.length > 0
       ? res.status(200).json({ items })
       : res.status(404).json({ message: "Not found" });
@@ -42,7 +42,10 @@ router.post("/", async (req, res) => {
          each request made to modify a product. It become necessary a logic changin in order to 
          restore the product table with the original data.
    */
+
   if (isCorret(2, req.body) && isCorret(4, req.body?.item)) {
+    console.log(req.body);
+
     const data = rearranging(req.body);
     if (!isValid(data.item_id, data.user_id)) {
       res.status(200).json({
@@ -107,7 +110,7 @@ router.delete("/", async (req, res) => {
 });
 
 router.delete("/item", async (req, res) => {
-  if (isCorret(1, req.body)) {
+  if (isCorret(2, req.body.cart)) {
     let ret = deleteAction("cart", "item_id = ? AND user_id=?", [
       req.body.cart.item_id,
       req.body.cart.user_id,

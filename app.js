@@ -16,26 +16,27 @@ app.set("view engine", "html");
 app.set("views", __dirname + "/views");
 app.engine("html", require("ejs").renderFile);
 app.use(bodyParser.json());
-let count = 0;
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
-  // dropTables and initDB is set to run every 24h after the API has been accessed,
-  // for the purpuse of restoring the DB to itoriginal state. If you wish to keep the
-  // data inserted into the tables you should comment the whole if block bellow.
-  if (count === 0) {
-    setTimeout(() => {
-      console.log("init");
-      dropTables();
-      initDB();
-      count = 0;
-      }, 24 * 60 * 60 * 1000);
-    count = 1;
-  }
+
   next();
 });
+  // dropTables and initDB is set to run every night
+  // for the purpuse of restoring the DB to itoriginal state. If you wish to keep the
+  // data inserted into the tables you should comment the whole if block bellow.
+// setInterval(() => {
+//   const d = new Date();
+//   let time = d.getHours();
+//   if (time === 2) {
+//     dropTables();
+//     initDB();
+//   }
+//   console.log("intDb");
+// }, 20 * 60 * 1000);
+
 app.use("/doc", doc);
 app.use("/userInterface", userInterface);
 app.use("/products", products);
