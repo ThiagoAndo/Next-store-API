@@ -170,8 +170,8 @@ If you would like to check a real e-commerce website which uses Next-tore-API as
 
 - Github - [Thiago Ando de Freitas](https://github.com/ThiagoAndo)
 - Personal website - [Portfolio](https://thiago-freitas-portfolio.vercel.app/)
-- Alive API - [Documentation](https://next-store-api-62m2.onrender.com/doc)
-- Alive API - [UI](https://next-store-api-62m2.onrender.com/userInterface)
+- Live API - [Documentation](https://next-store-api-62m2.onrender.com/doc)
+- Live API - [UI](https://next-store-api-62m2.onrender.com/userInterface)
 </br></br>
 
 <div style="text-align: center" >
