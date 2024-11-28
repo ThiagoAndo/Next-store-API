@@ -1,48 +1,70 @@
 <center><h1> Next Store API </h1> </center> </br><p align="center"> <img width="300" src="assets/Fetch.png"></p>
-  
-<div>
-        <p > Welcome to the Next Store API. This project includes <a href="https://next-store-api-62m2.onrender.com/doc">API documentation</a>, a Postman collection, and a<a href="https://next-store-api-62m2.onrender.com/doc"> website</a> built to interact with it.
-        The products endpoint provides a comprehensive dataset of
-          sample   product information,  including details like names, prices, descriptions, images, and categories, ideal for testing and prototyping e-commerce applications. This API allows you to manage and retrieve products, users, users' addresses, users'carts and users' purchases. This is a Restful API build using Node.js and Next.js. It also uses a package called <a href="https://www.npmjs.com/package/better-sqlite3">better-sqlite3</a> that allows you to create a local relational database and query it using Node.js. Thus, some routes require the client to send one JSON object per request, which will be inserted into the table.
-          <br />
-          <br /><br />
-        
-       
-</div>
+
+
+### **A Ready-Made REST API for Front-End Developers and E-Commerce Projects**
+
+Welcome to the **Next Store API**—a purpose-built solution for front-end developers and students looking to practice and prototype e-commerce applications. Whether you're building a fully-featured online store or experimenting with front-end frameworks like React, this API provides everything you need to create realistic, data-driven applications.
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [Built using](#built-using)
-  - [Folder structure](#folder-structure)
+- [Why Use Next Store API](#why-use-next-store-api)
+  - [Key Features](#key-features)
+  - [Built With](#built-with)
+  - [Who Is This For?](#who-is-this-for)
+  - [Why Next Store API Stands Out](#why-next-store-api-stands-out)
   - [Screenshot](#screenshot)
+  - [Project Folder Structure](#project-folder-structure)
   - [Links](#links)
-- [Local development](#local-development)
+- [Local Development](#local-development)
   - [Instructions](#instructions)
   - [Test](#🧪-test)
 - [Author](#author)
 
-## Overview
+## **Why Use Next Store API?**
 
- <h3 class="margin">The API provides endpoints for managing and retrieving:</h3>
-        <ul>
-          <li>Products</li>
-          <li>Users</li>
-          <li>Users' Addresses</li>
-          <li>Users' Carts</li>
-          <li>Users' Purchases</li>
-        </ul>
+Many developers face challenges finding a reliable, ready-to-use API when working on front-end projects. The **Next Store API** solves this by offering:
 
-## Built using
+- A **comprehensive dataset** of sample products, complete with names, prices, descriptions, images, and categories.
+- Full control over managing and retrieving:
+  - **Products**: Fetch, filter, and sort data easily.
+  - **Users and Addresses**: Simulate user accounts and associated data.
+  - **Carts and Purchases**: Enable shopping cart functionality and purchase tracking.
+- A lightweight, local **relational database** powered by the **better-sqlite3** package, making it easy to run and query data on your machine.
 
-- Express JS
-- Jsonwebtoken
-- Nodemailer
-- Body-parser
-- Bcryptjs
-- Bootstrap
+## **Key Features**
 
-## Folder structure
+- **E-Commerce Focus**: Ideal for testing and building front-end stores.
+- **RESTful Design**: Designed with simplicity and scalability in mind, supporting CRUD operations across multiple endpoints.
+- **Local Database**: Includes a relational database setup for quick development without requiring external servers.
+- **Custom Data Handling**: Some routes require JSON objects for insertion, simulating real-world back-end interactions.
+- **Developer-Friendly Tools**:
+  - **API Documentation**: Comprehensive documentation to guide integration.
+  - **Postman Collection**: Pre-configured collection for testing endpoints.
+  - **Interactive Website**: A demo interface built to interact with the API.
+
+## **Built With**
+
+- **Node.js** and **Express.js**: For building a robust and scalable RESTful API.
+- **Jsonwebtoken (JWT)**: To implement secure user authentication and authorisation.
+- **Nodemailer**: For handling email notifications, such as order confirmations or user account updates.
+- **Body-parser**: To parse incoming request bodies and ensure smooth data handling.
+- **Bcryptjs**: For securely hashing and storing user passwords.
+- **better-sqlite3**: A fast and simple relational database solution for local development.
+- **Bootstrap**: To create a responsive, user-friendly front-end interface for the API demo.
+
+## **Who Is This For?**
+
+This API is designed for:
+
+- **Front-End Developers**: Practice API integration and state management with a realistic e-commerce dataset.
+- **Coding Students**: Build fully functional e-commerce applications for learning or portfolios.
+- **Prototyping Projects**: Quickly create and test front-end designs without worrying about back-end complexity.
+
+## **Why Next Store API Stands Out**
+
+Unlike generic APIs, the Next Store API is specifically tailored for e-commerce projects. It provides structured, realistic data and intuitive endpoints, helping developers focus on front-end functionality while experiencing back-end integration in a hands-on way.
+
+## Project Folder Structure
 
 </br>
 </br>
@@ -112,14 +134,13 @@
 </p>
 </br>
 
-
 ## Links
 
 - Alive website - [User Interface to test API](https://next-store-api-62m2.onrender.com/userInterface)
 - Alive website - [API documentation](https://next-store-api-62m2.onrender.com/doc)
-<img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
+  <img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
 
-## Local development
+## Local Development
 
 To run the project from a container, ensure that Node.js (version 14 or higher) and npm (version 7 or higher) are installed on your development machine.
 
@@ -166,13 +187,17 @@ http://localhost:8080/userInterface
 
 If you would like to check a real e-commerce website which uses Next-tore-API as backend go to this repository <a href="https://github.com/ThiagoAndo/Store-e-commerce.git"><span style=" font-style: italic">Store-e-commerce</span></a>:
 
+---
+
+Enjoy using the **Next Store API** and happy coding! 🚀
+
 ## Author
 
 - Github - [Thiago Ando de Freitas](https://github.com/ThiagoAndo)
 - Personal website - [Portfolio](https://thiago-freitas-portfolio.vercel.app/)
 - Alive API - [Documentation](https://next-store-api-62m2.onrender.com/doc)
 - Alive API - [UI](https://next-store-api-62m2.onrender.com/userInterface)
-</br></br>
+  </br></br>
 
 <div style="text-align: center" >
 <h3 style="color:black;">"The impediment to action advances action. What stands in the way becomes the way."</h3>
